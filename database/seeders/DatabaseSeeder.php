@@ -15,13 +15,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        Admin::create([
+        // Admin::create([
 
-            'name'=>'obadaAje',
-            'email'=>'obada@gmail.com',
-            'password'=>Hash::make('123456789'),
+        //     'name'=>'obadaAje',
+        //     'email'=>'obada@gmail.com',
+        //     'password'=>Hash::make('123456789'),
 
-        ]);
+        // ]);
 
 
 
@@ -34,15 +34,6 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-<<<<<<< HEAD
-
-        $this->call(CountrySeeder::class);
-        $this->call(CitySeeder::class);
-        $this->call(CategorySeeder::class); 
-        $this->call(CollectionSeeder::class); 
-        $this->call(ProductSeeder::class); 
-        $this->call(ContactUsSeeder::class); 
-=======
         $this->call(CountrySeeder::class);
         $this->call(CitySeeder::class);
         $this->call(CategorySeeder::class);
@@ -52,6 +43,5 @@ class DatabaseSeeder extends Seeder
 
 
 
->>>>>>> 488d2c998fd7ba7286db1ddb09960e5af0531f1d
     }
 }
