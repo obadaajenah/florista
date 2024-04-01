@@ -41,5 +41,16 @@ class Provider extends User implements HasMedia
         'password' => 'hashed',
     ];
 
-
+    public function provider()
+    {
+        return $this->hasOne(ProviderLicence::class, 'provider_id', 'id');
+    }
+    public function posts()
+    {
+        return $this->hasMany(WorkProvider::class);
+    }
+    public function tasks()
+    {
+        return $this->hasMany(Task::class, 'provider_id');
+    }
 }

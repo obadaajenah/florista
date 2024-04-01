@@ -7,11 +7,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 //use Laravel\Sanctum\HasApiTokens;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasName;
 use Laravel\Passport\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
+<<<<<<< HEAD
+class User extends Authenticatable implements  HasName
+=======
 class User extends Authenticatable implements HasMedia
+>>>>>>> 488d2c998fd7ba7286db1ddb09960e5af0531f1d
 {
     use HasApiTokens, HasFactory, Notifiable , InteractsWithMedia;
 
@@ -75,11 +81,18 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->hasMany(WorkProvider::class);
     }
+<<<<<<< HEAD
+   
+    public function getFilamentName(): string
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
+=======
     // public function provider()
     // {
     //     return $this->hasOne(ProviderLicence::class, 'provider_id', 'id');
     // }
-
+>>>>>>> 488d2c998fd7ba7286db1ddb09960e5af0531f1d
 
     public function AauthAcessToken(){
         return $this->hasMany('\App\OauthAccessToken');

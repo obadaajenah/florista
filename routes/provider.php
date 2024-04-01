@@ -10,6 +10,16 @@ use App\Http\Controllers\ProviderController;
 
 
 
+<<<<<<< HEAD
+Route::post('register', [ProviderController::class, 'register']);
+Route::post('login', [ProviderController::class, 'login']);
+Route::post('logout', [ProviderController::class, 'logout'])->middleware('check_user:pro-api');
+Route::post('add_post', [ProviderController::class, 'store']);
+Route::get('all', [ProviderController::class, 'index']);
+Route::get('profile/{provider}', [ProviderController::class, 'myProfile']);
+Route::get('posts', [ProviderController::class, 'posts']);
+Route::put('update/{provider}', [ProviderController::class, 'updateProfile']);
+=======
 Route::post('register',[RegisterController::class,'register']);
 Route::post('login',[LoginController::class,'login']);
 Route::post('Request-join',[RequestController::class,'join']);
@@ -24,3 +34,4 @@ Route::middleware('auth:provider')->group(function(){
     Route::put('update/{provider}', [ProviderController::class, 'updateProfile']);
 
 });
+>>>>>>> 488d2c998fd7ba7286db1ddb09960e5af0531f1d

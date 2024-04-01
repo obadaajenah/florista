@@ -9,11 +9,15 @@ class City extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name'
+        'name',
+        'country_id'
     ];
 
     public function addresses()
     {
         return $this->hasMany(Address::class);
+    }
+    public function country(){
+        return $this->belongsTo(Country::class);
     }
 }

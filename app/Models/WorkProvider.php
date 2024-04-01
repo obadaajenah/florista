@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
+use App\Contracts\Images;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-
-class WorkProvider extends BaseModel
+class WorkProvider extends Model
 {
     use HasFactory;
+    use Images;
     protected $fillable = [
         'provider_id',
+        'description'
 
     ];
 
@@ -17,10 +20,5 @@ class WorkProvider extends BaseModel
     {
         return $this->belongsTo(Provider::class, 'provider_id', 'id');
     }
-    public function createManyImages($images)
-    {
-        foreach ($images as $image) {
-            $this->images()->create(['image_name' => $image]);
-        }
-    }
+  
 }

@@ -13,7 +13,8 @@ class Product extends BaseModel
         'name',
         'price',
         'description',
-        'size'
+        'size',
+        'rate'
     ];
 
 
@@ -29,12 +30,7 @@ class Product extends BaseModel
     {
         return $this->hasMany(Review::class);
     }
-    public function createManyImages($images)
-    {
-        foreach ($images as $image) {
-            $this->images()->create(['image_name' => $image]);
-        }
-    }
+
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class);
