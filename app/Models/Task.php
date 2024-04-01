@@ -8,10 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     use HasFactory;
-    protected $fillable = ['provider_id', 'from_date', 'to_date', 'status'];
+
+    protected $casts = [
+        'completed' => 'boolean',
+    ];
+
+    protected $fillable = [
+        'provider_id',
+        'title',
+        'description',
+        'due_date',
+        'priority',
+        'completed'
+    ];
 
     public function provider()
     {
-        return $this->belongsTo(Provider::class, 'provider_id', 'id');
+        return $this->belongsTo(Provider::class, 'provider_id');
     }
 }

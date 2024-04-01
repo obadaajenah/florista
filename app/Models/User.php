@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 //use Laravel\Sanctum\HasApiTokens;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasName;
 use Laravel\Passport\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements  HasName
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -68,11 +70,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(WorkProvider::class);
     }
-    public function provider()
+   
+    public function getFilamentName(): string
     {
-        return $this->hasOne(ProviderLicence::class, 'provider_id', 'id');
+        return "{$this->first_name} {$this->last_name}";
     }
-
 
     public function AauthAcessToken(){
         return $this->hasMany('\App\OauthAccessToken');

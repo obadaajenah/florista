@@ -14,6 +14,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+$dev_path = __DIR__ . '../Developers/';
+
+Route::prefix('v1')->group(function () use ($dev_path) {
+
+    // Address routes
+    include "{$dev_path}Addresses.php";
+
+    // // Products routes
+    include "{$dev_path}Products.php";
+
+    // Categories routes
+    include "{$dev_path}Categories.php";
+
+
+    // Collections routes
+    include "{$dev_path}Collections.php";
+
+
+     // Tasks routes
+     include "{$dev_path}Tasks.php";
 });

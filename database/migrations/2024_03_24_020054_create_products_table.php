@@ -22,7 +22,8 @@ return new class extends Migration
             $table->string('name');
             $table->float('price');
             $table->longText('description');
-            $table->float('size');
+            $table->string('size');
+            $table->integer('rate');
             $table->timestamps();
         });
     }

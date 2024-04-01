@@ -14,10 +14,15 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('provider_id')->constrained();
-            $table->date('from_date');
-            $table->date('to_date');
-            $table->enum('status', ['in_progress', 'done'])->default('in_progress');
+            $table->foreignId('provider_id')->constrained('providers')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+
+            $table->string('title');
+            $table->longText('description');
+            $table->enum('priority', ['low', 'medium', 'high'])->default('medium');
+            $table->dateTime('due_date')->nullable();
+            $table->boolean('completed')->default(false);
 
             $table->timestamps();
         });

@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('work_providers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('provider_id')->constrained();
+            $table->foreignId('provider_id')->constrained('providers')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
 
             $table->longText('description');
             $table->timestamps();
