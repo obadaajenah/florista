@@ -8,10 +8,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 //use Laravel\Sanctum\HasApiTokens;
 use Laravel\Passport\HasApiTokens;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable , InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -50,6 +52,11 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('user-profile')->useDisk('user_profile');
+        $this->addMediaCollection('user-image')->useDisk('user_image');
+    }
 
 
     public function reviews()
@@ -68,10 +75,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(WorkProvider::class);
     }
-    public function provider()
-    {
-        return $this->hasOne(ProviderLicence::class, 'provider_id', 'id');
-    }
+    // public function provider()
+    // {
+    //     return $this->hasOne(ProviderLicence::class, 'provider_id', 'id');
+    // }
 
 
     public function AauthAcessToken(){

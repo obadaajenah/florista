@@ -4,24 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\Provider as Authenticatable;
+use Illuminate\Foundation\Auth\Admin as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Provider extends User implements HasMedia
+class Admin extends  User
 {
-    use HasApiTokens, HasFactory, Notifiable ,InteractsWithMedia;
+    use HasFactory, HasApiTokens, Notifiable;
 
 
-
-
-   
 
     protected $fillable = [
         'name',
-        'phone',
         'email',
         'password',
     ];
@@ -34,12 +28,15 @@ class Provider extends User implements HasMedia
         'email_verified_at',
     ];
 
-
-
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+
+
+
 
 
 }

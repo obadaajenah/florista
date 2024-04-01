@@ -48,13 +48,22 @@ return [
             'driver' => 'passport',
             'provider' => 'users',
         ],
-        'pro-api' => [
+        'provider-api' => [
             'driver' => 'session',
             'provider' => 'providers',
         ],
         'provider' => [
             'driver' => 'passport',
             'provider' => 'providers',
+        ],
+
+        'Admin-api' => [
+            'driver' => 'session',
+            'provider' => 'Admins',
+        ],
+        'Admin' => [
+            'driver' => 'passport',
+            'provider' => 'Admins',
         ],
     ],
 
@@ -84,6 +93,12 @@ return [
         'providers' => [
             'driver' => 'eloquent',
             'model' => App\Models\Provider::class,
+        ],
+
+
+        'Admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
         ],
 
         // 'users' => [

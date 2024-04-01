@@ -22,8 +22,8 @@ class RegisterEmpRequest extends FormRequest
         return [
             'name'=>'required|unique:providers,name|max:50',
             'email'=>'required|unique:providers,email|email',
-            'password'=>'required|min:6',
-            'password_confirmation'=>'required|same:password|min:6'
+            'phone'=>'required|unique:providers,phone|numeric',
+            'password'=>'required|min:6|confirmed',
         ];
     }
 
