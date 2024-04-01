@@ -34,6 +34,7 @@ class ProviderController extends Controller
     }
 
 
+<<<<<<< HEAD
     public function login(loginRequest $request)
     {
 
@@ -94,6 +95,11 @@ class ProviderController extends Controller
             'details' => ProviderResource::make($provider),
         ]);
     }
+=======
+ 
+
+
+>>>>>>> 488d2c998fd7ba7286db1ddb09960e5af0531f1d
 
 
     public function posts()
