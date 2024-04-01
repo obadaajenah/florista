@@ -14,7 +14,7 @@ class ModifyController extends Controller
     public function getRequests(){
 
         $request= Provider_licence::all();
-       
+
          return returnData ('Requests',$request);
     }
 
@@ -58,6 +58,7 @@ public function modify(Request $request, $id) {
         return response()->json(['message' => $e->getMessage()], 500);
     }
 }
+
 
 
 }
