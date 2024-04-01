@@ -15,13 +15,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        Admin::create([
+        // Admin::create([
 
-            'name'=>'obadaAje',
-            'email'=>'obada@gmail.com',
-            'password'=>Hash::make('123456789'),
+        //     'name'=>'obadaAje',
+        //     'email'=>'obada@gmail.com',
+        //     'password'=>Hash::make('123456789'),
 
-        ]);
+        // ]);
 
 
 
@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CategorySeeder::class);
         $this->call(CollectionSeeder::class);
         $this->call(ProductSeeder::class);
-        $this->call(ContactUsSeeder::class); 
+        $this->call(ContactUsSeeder::class);
 
 
 
