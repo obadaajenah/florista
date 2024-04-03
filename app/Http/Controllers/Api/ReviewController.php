@@ -22,15 +22,16 @@ class ReviewController extends Controller
 
         return ApiResponse::success([
             'message' => 'Review Added successfully.',
-            'review' => $review,
+            'review' => ReviewResource::make($review),
         ]);
     }
 
-    public function index(){
+    public function index()
+    {
         $reviews = Review::all();
         return ApiResponse::success([
-            
-            'reviews'=>ReviewResource::collection($reviews)
+
+            'reviews' => ReviewResource::collection($reviews)
         ]);
     }
 }

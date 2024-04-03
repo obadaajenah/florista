@@ -17,9 +17,7 @@ return new class extends Migration
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
-            $table->foreignId('city_id')->constrained('cities')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
+            $table->string('city');
 
             $table->foreignId('country_id')->constrained('countries')
                 ->cascadeOnDelete()

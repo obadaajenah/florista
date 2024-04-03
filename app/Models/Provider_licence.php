@@ -25,17 +25,4 @@ class Provider_licence extends Model
         'email_verified_at',
 
     ];
-
-
-
-
-
-
-
-
-
-    // public function provider()
-    // {
-    //     return $this->belongsTo(Provider::class, 'provider_id', 'id');
-    // }
 }

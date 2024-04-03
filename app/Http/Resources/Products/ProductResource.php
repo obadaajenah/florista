@@ -20,7 +20,7 @@ class ProductResource extends JsonResource
             'price' => $this->price,
             'description' => $this->description,
             'size' => $this->size,
-            'rate' => $this->rate,
+            'rate' => ReviewResource::collection($this->whenLoaded('reviews')),
         ];
     }
 }

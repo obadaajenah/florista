@@ -15,18 +15,6 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        // Admin::create([
-
-        //     'name'=>'obadaAje',
-        //     'email'=>'obada@gmail.com',
-        //     'password'=>Hash::make('123456789'),
-
-        // ]);
-
-
-
-
-
 
         // \App\Models\User::factory(10)->create();
 
@@ -34,14 +22,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
         $this->call(CountrySeeder::class);
-        $this->call(CitySeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(CollectionSeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(ContactUsSeeder::class);
-
-
-
+        $this->call(AdminSeeder::class);
     }
 }

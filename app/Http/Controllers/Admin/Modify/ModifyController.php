@@ -11,56 +11,53 @@ use Illuminate\Support\Facades\DB;
 
 class ModifyController extends Controller
 {
-    public function getRequests(){
+    public function getRequests()
+    {
 
-        $request= Provider_licence::all();
+        $request = Provider_licence::all();
 
-         return returnData ('Requests',$request);
+        return returnData('Requests', $request);
     }
 
 
 
-public function modify(Request $request, $id) {
-    try {
-        $decision = $request->input("decision");
+    public function modify(Request $request, $id)
+    {
+        try {
+            $decision = $request->input("decision");
 
-        DB::beginTransaction();
+            DB::beginTransaction();
 
-        $req = Provider_licence::findOrFail($id);
-        $name = $req->name;
-        $email = $req->email;
-        $phone = $req->phone;
+            $req = Provider_licence::findOrFail($id);
+            $name = $req->name;
+            $email = $req->email;
+            $phone = $req->phone;
 
-        if ($decision == "Accepted") {
-            Provider::create([
-                'name' => $name,
-                'email' => $email,
-                'phone' => $phone,
-                'password' => $phone
-            ]);
+            if ($decision == "Accepted") {
+                Provider::create([
+                    'name' => $name,
+                    'email' => $email,
+                    'phone' => $phone,
+                    'password' => $phone
+                ]);
 
 
-            $req->status = 'Accepted';
-            $req->save();
-            $message = "You have accepted the provider";
-        } else {
+                $req->status = 'Accepted';
+                $req->save();
+                $message = "You have accepted the provider";
+            } else {
 
-            $req->status = 'Rejected';
-            $req->save();
-            $message = "You have rejected the provider";
+                $req->status = 'Rejected';
+                $req->save();
+                $message = "You have rejected the provider";
+            }
+
+            DB::commit();
+
+            return response()->json(['message' => $message]);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json(['message' => $e->getMessage()], 500);
         }
-
-        DB::commit();
-
-        return response()->json(['message' => $message]);
-    } catch (\Exception $e) {
-        DB::rollBack();
-        return response()->json(['message' => $e->getMessage()], 500);
     }
 }
-
-
-
-}
-
-

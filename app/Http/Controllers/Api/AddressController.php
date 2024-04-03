@@ -5,9 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Contracts\ApiResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Addresses\StoreAddressFormRequest;
+use App\Http\Resources\Addresses\AddressResource;
 use App\Models\Address;
-use App\Models\City;
-use App\Http\Resources\Addresses\CityResource;
 use App\Http\Resources\Addresses\CountryResource;
 use App\Models\Country;
 
@@ -19,17 +18,17 @@ class AddressController extends Controller
 
         $address = Address::create($validatedData);
 
-        return ApiResponse::success(['message' => 'Address created successfully', 'data' => $address]);
+        return ApiResponse::success([
+            'message' => 'Address created successfully',
+            'data' => AddressResource::make($address)
+        ]);
     }
 
-    public function allCities()
-    {
-        $cities = City::all();
-        return ApiResponse::success(['cities' => CityResource::collection($cities)]);
-    }
     public function allCountries()
     {
-        $country = Country::with('cities')->get();
-        return ApiResponse::success(['countries' => CountryResource::collection($country)]);
+        $country = Country::all();
+        return ApiResponse::success([
+            'countries' => CountryResource::collection($country)
+        ]);
     }
 }

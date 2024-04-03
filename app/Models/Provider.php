@@ -12,12 +12,8 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Provider extends User implements HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable ,InteractsWithMedia;
+    use HasApiTokens, HasFactory, Notifiable, InteractsWithMedia;
 
-
-
-
-   
 
     protected $fillable = [
         'name',
@@ -41,10 +37,6 @@ class Provider extends User implements HasMedia
         'password' => 'hashed',
     ];
 
-    public function provider()
-    {
-        return $this->hasOne(ProviderLicence::class, 'provider_id', 'id');
-    }
     public function posts()
     {
         return $this->hasMany(WorkProvider::class);

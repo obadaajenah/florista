@@ -15,7 +15,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 
 class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable , InteractsWithMedia;
+    use HasApiTokens, HasFactory, Notifiable, InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -82,12 +82,9 @@ class User extends Authenticatable implements HasMedia
     {
         return "{$this->first_name} {$this->last_name}";
     }
-    // public function provider()
-    // {
-    //     return $this->hasOne(ProviderLicence::class, 'provider_id', 'id');
-    // }
 
-    public function AauthAcessToken(){
+    public function AauthAcessToken()
+    {
         return $this->hasMany('\App\OauthAccessToken');
     }
 }

@@ -20,5 +20,4 @@ class WorkProvider extends Model
     {
         return $this->belongsTo(Provider::class, 'provider_id', 'id');
     }
-  
 }

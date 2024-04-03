@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\Admin as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 
@@ -32,11 +30,4 @@ class Admin extends  User
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-
-
-
-
-
-
-
 }
