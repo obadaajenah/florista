@@ -16,6 +16,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
+            $table->foreignId('order_id')->constrained('orders')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
 
             $table->string('city');
 

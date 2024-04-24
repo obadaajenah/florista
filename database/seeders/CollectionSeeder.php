@@ -14,9 +14,10 @@ class CollectionSeeder extends Seeder
     public function run(): void
     {
         $collections = [
-            ['name' => 'Spring Collection', 'category_id' => 1],
-            ['name' => 'Summer Collection', 'category_id' => 2],
-            ['name' => 'Fall Collection', 'category_id' => 3],
+            ['name' => 'Spring Collection', 'category_id' => 1], // Example: Spring Collection belongs to category with ID 1
+            ['name' => 'Summer Collection', 'category_id' => 2], // Example: Summer Collection belongs to category with ID 1
+            ['name' => 'Autumn Collection', 'category_id' => 1], // Example: Autumn Collection belongs to category with ID 1
+            ['name' => 'Winter Collection', 'category_id' => 3], // E
 
         ];
 

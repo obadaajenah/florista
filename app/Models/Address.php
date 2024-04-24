@@ -10,6 +10,7 @@ class Address extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
+        'order_id',
         'city',
         'country_id',
         'line_one',
@@ -26,5 +27,9 @@ class Address extends Model
     public function country()
     {
         return $this->belongsTo(Country::class);
+    }
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
     }
 }

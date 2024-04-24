@@ -14,7 +14,10 @@ class Product extends BaseModel
         'price',
         'description',
         'size',
-        'rate'
+        'rate',
+        'is_active',
+        'in_stock',
+        'on_sale'
     ];
 
 
@@ -35,4 +38,7 @@ class Product extends BaseModel
     {
         return $this->hasMany(OrderItem::class);
     }
+    protected $casts = [
+        'size' => 'array',
+    ];
 }

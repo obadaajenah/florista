@@ -18,9 +18,13 @@ return new class extends Migration
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
-            $table->date('date');
-            $table->float('total_price');
-            $table->string('status');
+            $table->decimal('total_price', 10, 2)->nullable();
+            $table->string('payment_method')->nullable();
+            $table->string('payment_status')->nullable();
+            $table->enum('status', ['new', 'processing', 'shipped', 'delivered', 'canceled'])->default('new');
+            $table->decimal('shipping_amount', 10, 2);
+            $table->string('shipping_method')->nullable();
+            $table->text('notes');
 
             $table->timestamps();
         });

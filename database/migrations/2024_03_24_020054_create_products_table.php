@@ -20,10 +20,14 @@ return new class extends Migration
                 ->cascadeOnUpdate();
 
             $table->string('name');
-            $table->float('price');
+            $table->decimal('price', 10, 2);
             $table->longText('description');
             $table->string('size');
-            $table->integer('rate');
+            $table->integer('rate')->nullable();
+
+            $table->boolean('is_active')->default(true);
+            $table->boolean('in_stock')->default(true);
+            $table->boolean('on_sale')->default(false);
             $table->timestamps();
         });
     }

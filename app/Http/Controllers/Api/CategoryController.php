@@ -13,10 +13,9 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $category = Category::with('collections.products')->get();
+        $category = Category::with('children.collections.products')->get();
         return ApiResponse::success([
-
-            'categories' => CategoryResource::collection($category)
+            'categories' => $category
         ]);
     }
 

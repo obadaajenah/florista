@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('images', function (Blueprint $table) {
-            $table->id();
-            $table->morphs('imageable');
-            $table->string('image_name')->unique();
+        Schema::table('categories', function (Blueprint $table) {
+            $table->unsignedBigInteger('parent_id')->nullable();
         });
     }
 
@@ -23,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('images');
+        Schema::table('categories', function (Blueprint $table) {
+            //
+        });
     }
 };

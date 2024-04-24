@@ -14,21 +14,17 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $categories = [
-            ['name' => 'Roses'],
-            ['name' => 'Tulips'],
-            ['name' => 'Lilies'],
-            ['name' => 'Daisies'],
-            ['name' => 'Orchids'],
-            ['name' => 'Sunflowers'],
-            ['name' => 'Carnations'],
-            ['name' => 'Peonies'],
-            ['name' => 'Hydrangeas'],
-            ['name' => 'Chrysanthemums'],
-            ['name' => 'Irises'],
-            ['name' => 'Daffodils'],
-            ['name' => 'Gerbera Daisies'],
-            ['name' => 'Anemones'],
-            ['name' => 'Snapdragons'],
+            ['name' => 'Flowers', 'is_active' => true, 'parent_id' => null],
+            ['name' => 'Roses', 'is_active' => true, 'parent_id' => 1], // Roses belong to Flowers (parent_id = 1)
+            ['name' => 'Tulips', 'is_active' => true, 'parent_id' => 1], // Tulips belong to Flowers (parent_id = 1)
+            ['name' => 'Lilies', 'is_active' => true, 'parent_id' => 1], // Lilies belong to Flowers (parent_id = 1)
+            ['name' => 'Plants', 'is_active' => true, 'parent_id' => null],
+            ['name' => 'Indoor Plants', 'is_active' => true, 'parent_id' => 5], // Indoor Plants belong to Plants (parent_id = 5)
+            ['name' => 'Outdoor Plants', 'is_active' => true, 'parent_id' => 5], // Outdoor Plants belong to Plants (parent_id = 5)
+            ['name' => 'Fruits', 'is_active' => true, 'parent_id' => null],
+            ['name' => 'Apples', 'is_active' => true, 'parent_id' => 8], // Apples belong to Fruits (parent_id = 8)
+            ['name' => 'Bananas', 'is_active' => true, 'parent_id' => 8], // Bananas belong to Fruits (parent_id = 8)
+            ['name' => 'Oranges', 'is_active' => true, 'parent_id' => 8], //
         ];
         foreach ($categories as $typeData) {
             Category::create($typeData);
